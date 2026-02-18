@@ -1,55 +1,50 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inferleo Projects</title>
+<title>Mi Dashboard</title>
 
 <style>
 body{
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#0d0f14;
+    font-family:Arial;
+    background:#020617;
     color:white;
-    text-align:center;
 }
 
 header{
-    padding:60px 20px;
-    background:linear-gradient(180deg,#111827,#020617);
-}
-
-h1{
-    font-size:48px;
-    margin-bottom:10px;
-}
-
-p{
-    color:#9ca3af;
+    background:#0f172a;
+    padding:20px;
+    font-size:22px;
 }
 
 .container{
-    padding:40px;
+    padding:30px;
 }
 
-.card{
+.project{
     background:#111827;
-    margin:20px auto;
     padding:20px;
-    border-radius:15px;
-    width:300px;
-    transition:.25s;
+    border-radius:12px;
+    margin-bottom:15px;
 }
 
-.card:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 25px rgba(0,150,255,.4);
+input{
+    padding:10px;
+    border-radius:8px;
+    border:none;
+    margin-right:10px;
 }
 
-a{
-    color:#38bdf8;
-    text-decoration:none;
-    font-weight:bold;
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
 }
 </style>
 </head>
@@ -57,25 +52,47 @@ a{
 <body>
 
 <header>
-<h1>Inferleo</h1>
-<p>Mi centro de proyectos</p>
+Mi Dashboard Personal
 </header>
 
 <div class="container">
 
-<div class="card">
-<h2>Mi Dashboard</h2>
-<p>Administrador personal de proyectos</p>
-<a href="/dashboard">Abrir</a>
-</div>
+<input id="projectName" placeholder="Nombre del proyecto">
+<button onclick="addProject()">Agregar</button>
 
-<div class="card">
-<h2>Proyecto WWE</h2>
-<p>Sistema de votaciones de luchadores</p>
-<a href="#">Próximamente</a>
-</div>
+<div id="projects"></div>
 
 </div>
+
+<script>
+let projects = JSON.parse(localStorage.getItem("projects")) || [];
+
+function save(){
+    localStorage.setItem("projects", JSON.stringify(projects));
+}
+
+function render(){
+    const container = document.getElementById("projects");
+    container.innerHTML = "";
+    projects.forEach(p=>{
+        container.innerHTML += `
+        <div class="project">
+        <h3>${p}</h3>
+        </div>`;
+    });
+}
+
+function addProject(){
+    const name = document.getElementById("projectName").value;
+    if(!name) return;
+    projects.push(name);
+    save();
+    render();
+    document.getElementById("projectName").value="";
+}
+
+render();
+</script>
 
 </body>
 </html>
