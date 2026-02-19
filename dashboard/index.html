@@ -1,56 +1,48 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Dashboard</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial;
-    background:#020617;
-    color:white;
-}
-
-header{
-    background:#0f172a;
-    padding:20px;
-    font-size:22px;
-}
-
-.container{
-    padding:30px;
-}
-
-.project{
-    background:#111827;
-    padding:20px;
-    border-radius:12px;
-    margin-bottom:15px;
-}
-</style>
+<title>Mi Agenda Personal</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-Mi Dashboard Personal
-</header>
+<h1>Mi Agenda</h1>
 
-<div class="container">
+<section class="card">
+<h2>Lista de Tareas</h2>
 
-<div class="project">
-<h3>Proyecto WWE</h3>
-<p>Aplicación de votaciones de luchadores</p>
+<div class="addTask">
+<input type="text" id="taskInput" placeholder="Escribe una tarea...">
+<button onclick="addTask()">Agregar</button>
 </div>
 
-<div class="project">
-<h3>Ideas futuras</h3>
-<p>Aquí irán nuevos proyectos</p>
-</div>
+<ul id="taskList"></ul>
+</section>
 
-</div>
+<section class="card">
+<h2>Horario Semanal</h2>
 
+<table id="schedule">
+<thead>
+<tr>
+<th>Hora</th>
+<th>Lunes</th>
+<th>Martes</th>
+<th>Miércoles</th>
+<th>Jueves</th>
+<th>Viernes</th>
+<th>Sábado</th>
+<th>Domingo</th>
+</tr>
+</thead>
+
+<tbody id="scheduleBody"></tbody>
+</table>
+</section>
+
+<script src="app.js"></script>
 </body>
 </html>
