@@ -89,3 +89,26 @@ scheduleBody.appendChild(row);
 });
 
 renderTasks();
+function activarNotificaciones(){
+if(Notification.permission === "granted"){
+alert("Las notificaciones ya están activadas ✅");
+return;
+}
+
+Notification.requestPermission().then(permission=>{
+if(permission === "granted"){
+new Notification("Recordatorios activados 🔔",{
+body:"Te avisaré para que revises tus tareas"
+});
+}
+});
+}
+
+// Recordatorio cada 2 horas
+setInterval(()=>{
+if(Notification.permission === "granted"){
+new Notification("⏰ Recordatorio",{
+body:"Revisa tus tareas y tu horario"
+});
+}
+}, 7200000);
