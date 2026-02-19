@@ -5,15 +5,16 @@
 <title>Mi Agenda Personal</title>
   <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#0f172a">
-  <button onclick="activarNotificaciones()" style="margin-bottom:20px;">
-Activar recordatorios 🔔
-</button>
+ 
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <h1>Mi Agenda</h1>
+<button onclick="activarNotificaciones()" style="margin-bottom:20px;">
+Activar recordatorios 🔔
+</button>
 
 <section class="card">
 <h2>Lista de Tareas</h2>
@@ -72,5 +73,8 @@ function revisarPendientes() {
 }
 
 window.addEventListener("load", revisarPendientes);
-</script>
+  </script>
+</body>
+</html>
+
 
