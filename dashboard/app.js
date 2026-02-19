@@ -104,11 +104,21 @@ body:"Te avisaré para que revises tus tareas"
 });
 }
 
-// Recordatorio cada 2 horas
+function hayTareasPendientes() {
+const tareas = document.querySelectorAll("li");
+for (let tarea of tareas) {
+if (!tarea.classList.contains("completed")) {
+return true;
+}
+}
+return false;
+}
+
+// Recordatorio cada 2 horas SOLO si hay pendientes
 setInterval(()=>{
-if(Notification.permission === "granted"){
-new Notification("⏰ Recordatorio",{
-body:"Revisa tus tareas y tu horario"
+if(Notification.permission === "granted" && hayTareasPendientes()){
+new Notification("⏰ Tienes tareas pendientes",{
+body:"No olvides revisar tu lista 📋"
 });
 }
 }, 7200000);
