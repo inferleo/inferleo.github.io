@@ -69,7 +69,7 @@ function addTask() {
 // HORARIO SEMANAL (TU CÓDIGO)
 // ============================================
 
-const hours = ["7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"];
+const hours = ["7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"];
 
 const scheduleBody = document.getElementById("scheduleBody");
 let scheduleData = JSON.parse(localStorage.getItem("schedule")) || {};
@@ -160,7 +160,7 @@ setInterval(() => {
   if (Notification.permission === "granted" && hayTareasPendientes()) {
     mostrarNotificacion("⏰ Tienes tareas pendientes", "No olvides revisar tu lista 📋");
   }
-}, 7200000); // 2 horas
+}, 1800000); // 30 minutos
 
 // ============================================
 // VERIFICACIÓN AL CARGAR LA PÁGINA
