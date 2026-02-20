@@ -59,32 +59,7 @@
 </section>
 
 <script src="app.js"></script>
-<script>
-function revisarPendientes() {
-  let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
-  let pendientes = tareas.filter(t => !t.completada);
 
-  if (pendientes.length > 0) {
-    let aviso = document.createElement("div");
-    aviso.innerText = "⚠ Tienes tareas pendientes sin marcar";
-    aviso.style.position = "fixed";
-    aviso.style.top = "0";
-    aviso.style.left = "0";
-    aviso.style.width = "100%";
-    aviso.style.background = "#b91c1c";
-    aviso.style.color = "white";
-    aviso.style.padding = "15px";
-    aviso.style.textAlign = "center";
-    aviso.style.fontSize = "18px";
-    aviso.style.fontWeight = "bold";
-    aviso.style.zIndex = "9999";
-    document.body.appendChild(aviso);
-  }
-}
-
-window.addEventListener("load", revisarPendientes);
-  </script>
 </body>
 </html>
-
 
