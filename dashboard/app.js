@@ -196,4 +196,13 @@ window.addEventListener("load", function() {
   if (Notification.permission === "granted") {
     document.getElementById('configNotificaciones').style.display = 'block';
   }
-});
+}); // ============================================
+// REGISTRAR SERVICE WORKER (NECESARIO PARA NOTIFICACIONES)
+// ============================================
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('✅ Service Worker registrado:', reg))
+      .catch(err => console.log('❌ Error al registrar Service Worker:', err));
+  });
+}
