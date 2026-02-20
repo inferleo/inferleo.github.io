@@ -12,9 +12,19 @@
 <body>
 
 <h1>Mi Agenda</h1>
-<button onclick="activarNotificaciones()" style="margin-bottom:20px;">
-Activar recordatorios 🔔
+<button onclick="solicitarPermisoNotificaciones()" style="margin-bottom:20px;">
+🔔 Activar notificaciones del sistema
 </button>
+
+<!-- Agrega esto DEBAJO del botón -->
+<div style="margin-bottom:20px; display:none;" id="configNotificaciones">
+  <label>
+    <input type="checkbox" id="notifInmediatas" checked> Notificar inmediatamente
+  </label>
+  <label style="margin-left:15px;">
+    <input type="checkbox" id="notifProgramadas"> Recordar cada hora
+  </label>
+</div>
 
 <section class="card">
 <h2>Lista de Tareas</h2>
